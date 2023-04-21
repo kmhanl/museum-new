@@ -35,6 +35,7 @@ public class Common {
 		try {
 			if (userRepository.existsByEmail(guestId)) {
 				tx.begin();
+				// 데이터 상태 변경 : delyn 컬럼값을 'Y'로 변경
 				em.merge(User.builder()
 		                .email(guestId)
 		                .loginYn(false)
